@@ -14,6 +14,9 @@
 		D6EA8591298DA354003CADA1 /* WhitelistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA8590298DA354003CADA1 /* WhitelistTests.swift */; };
 		D6EA859B298DA354003CADA1 /* WhitelistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA859A298DA354003CADA1 /* WhitelistUITests.swift */; };
 		D6EA859D298DA354003CADA1 /* WhitelistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA859C298DA354003CADA1 /* WhitelistUITestsLaunchTests.swift */; };
+		D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85AC298DA421003CADA1 /* vm_unaligned_copy_switch_race.c */; };
+		D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85AE298DA440003CADA1 /* grant_full_disk_access.m */; };
+		D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B1298DA45C003CADA1 /* helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,13 @@
 		D6EA8596298DA354003CADA1 /* WhitelistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhitelistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA859A298DA354003CADA1 /* WhitelistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistUITests.swift; sourceTree = "<group>"; };
 		D6EA859C298DA354003CADA1 /* WhitelistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6EA85AA298DA421003CADA1 /* Whitelist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Whitelist-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6EA85AB298DA421003CADA1 /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
+		D6EA85AC298DA421003CADA1 /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
+		D6EA85AE298DA440003CADA1 /* grant_full_disk_access.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
+		D6EA85B0298DA44C003CADA1 /* grant_full_disk_access.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
+		D6EA85B1298DA45C003CADA1 /* helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
+		D6EA85B3298DA464003CADA1 /* helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				D6EA857F298DA351003CADA1 /* WhitelistApp.swift */,
+				D6EA85A9298DA408003CADA1 /* Exploit */,
 				D6EA8581298DA351003CADA1 /* ContentView.swift */,
+				D6EA85AA298DA421003CADA1 /* Whitelist-Bridging-Header.h */,
 				D6EA8583298DA354003CADA1 /* Assets.xcassets */,
 				D6EA8585298DA354003CADA1 /* Preview Content */,
 			);
@@ -125,6 +137,19 @@
 				D6EA859C298DA354003CADA1 /* WhitelistUITestsLaunchTests.swift */,
 			);
 			path = WhitelistUITests;
+			sourceTree = "<group>";
+		};
+		D6EA85A9298DA408003CADA1 /* Exploit */ = {
+			isa = PBXGroup;
+			children = (
+				D6EA85AB298DA421003CADA1 /* vm_unaligned_copy_switch_race.h */,
+				D6EA85AC298DA421003CADA1 /* vm_unaligned_copy_switch_race.c */,
+				D6EA85AE298DA440003CADA1 /* grant_full_disk_access.m */,
+				D6EA85B0298DA44C003CADA1 /* grant_full_disk_access.h */,
+				D6EA85B3298DA464003CADA1 /* helpers.h */,
+				D6EA85B1298DA45C003CADA1 /* helpers.m */,
+			);
+			path = Exploit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +220,7 @@
 				TargetAttributes = {
 					D6EA857B298DA351003CADA1 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					D6EA858B298DA354003CADA1 = {
 						CreatedOnToolsVersion = 14.2;
@@ -257,8 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */,
 				D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */,
 				D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */,
+				D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */,
+				D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Whitelist/Preview Content\"";
@@ -425,14 +455,17 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.Whitelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Whitelist/Exploit/Whitelist-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Whitelist/Preview Content\"";
@@ -454,14 +488,16 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.Whitelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Whitelist/Exploit/Whitelist-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
