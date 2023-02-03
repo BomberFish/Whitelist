@@ -17,6 +17,8 @@
 		D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85AC298DA421003CADA1 /* vm_unaligned_copy_switch_race.c */; };
 		D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85AE298DA440003CADA1 /* grant_full_disk_access.m */; };
 		D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B1298DA45C003CADA1 /* helpers.m */; };
+		D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B5298DA7E5003CADA1 /* Alert++.swift */; };
+		D6EA85B8298DAEBC003CADA1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B7298DAEBC003CADA1 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		D6EA85B0298DA44C003CADA1 /* grant_full_disk_access.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
 		D6EA85B1298DA45C003CADA1 /* helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
 		D6EA85B3298DA464003CADA1 /* helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		D6EA85B5298DA7E5003CADA1 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
+		D6EA85B7298DAEBC003CADA1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,8 @@
 				D6EA857F298DA351003CADA1 /* WhitelistApp.swift */,
 				D6EA85A9298DA408003CADA1 /* Exploit */,
 				D6EA8581298DA351003CADA1 /* ContentView.swift */,
-				D6EA85AA298DA421003CADA1 /* Whitelist-Bridging-Header.h */,
+				D6EA85B7298DAEBC003CADA1 /* Common.swift */,
+				D6EA85B4298DA7D5003CADA1 /* Extensions */,
 				D6EA8583298DA354003CADA1 /* Assets.xcassets */,
 				D6EA8585298DA354003CADA1 /* Preview Content */,
 			);
@@ -148,8 +153,17 @@
 				D6EA85B0298DA44C003CADA1 /* grant_full_disk_access.h */,
 				D6EA85B3298DA464003CADA1 /* helpers.h */,
 				D6EA85B1298DA45C003CADA1 /* helpers.m */,
+				D6EA85AA298DA421003CADA1 /* Whitelist-Bridging-Header.h */,
 			);
 			path = Exploit;
+			sourceTree = "<group>";
+		};
+		D6EA85B4298DA7D5003CADA1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6EA85B5298DA7E5003CADA1 /* Alert++.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +301,9 @@
 				D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */,
 				D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */,
 				D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */,
+				D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */,
 				D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */,
+				D6EA85B8298DAEBC003CADA1 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

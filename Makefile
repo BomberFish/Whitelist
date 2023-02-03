@@ -1,14 +1,20 @@
 all: build package clean
 
 PROJECT = $(shell basename *.xcodeproj)
-TARGET = Mandela
+WORKING_LOCATION := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+TARGET = Whitelist
 CONFIGURATION = Release
 SDK = iphoneos
 
 build:
-	echo "building for SDK $(SDK)..."
+	echo "Building $(TARGET) for $(SDK)..."
 	xcodebuild -project $(PROJECT) -target $(TARGET) -configuration $(CONFIGURATION) -sdk $(SDK) CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO clean build
-	echo "build finished!"
+	echo "Build finished!"
+
+entitlements:
+	echo "Adding entitlements"
+	chmod a+x $WORKING_LOCATION/bin/ldid
+	$WORKING_LOCATION/bin/ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
 
 package:
 	rm -rf Payload
