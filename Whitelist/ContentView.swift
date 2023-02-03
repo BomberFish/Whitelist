@@ -42,7 +42,6 @@ struct ContentView: View {
             .navigationTitle("Whitelist")
         }
         .navigationTitle("Whitelist")
-        .padding()
     }
 }
 
