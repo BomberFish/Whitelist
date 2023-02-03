@@ -78,6 +78,12 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
 }
 
 // FIXME: This literally does nothing.
-func OverwriteBlacklists(blacklist: Bool, banned: Bool, cdhash: Bool) -> Bool {
- return true
+func OverwriteBlacklists(banned: Bool, cdhash: Bool) -> Bool {
+    if banned == true {
+        return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/AuthListBannedUpps.plist", replacementData: try! Data(base64Encoded: blankplist)!)
+    }
+    if cdhash == true {
+        return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/AuthListBannedCdHashes.plist", replacementData: try! Data(base64Encoded: blankplist)!)
+    }
+    return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/Rejections.plist", replacementData: try! Data(base64Encoded: blankplist)!)
 }
