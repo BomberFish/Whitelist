@@ -1,6 +1,6 @@
 ![Whitelist Icon](./img/icon.png)
 # Whitelist
-### Jailed iOS app to un-blacklist all enterprise-signed apps
+#### Jailed iOS app to un-blacklist all enterprise-signed apps
 
 ## Compatibility
 iOS and iPadOS **15.0-16.1.2**
@@ -15,3 +15,7 @@ Have you ever seen this annoying prompt?
 Well this app removes this!
 
 No really, it's that simple.
+
+## Screenshots
+![Home screen](./img/screen1.png)
+![Files screen](./img/screen2.png)
