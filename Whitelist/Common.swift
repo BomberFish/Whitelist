@@ -34,7 +34,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
     guard originalFileSize >= replacementData.count else {
         print("Original file: \(originalFileSize)")
         print("Replacement file: \(replacementData.count)")
-        print("File too big")
+        print("File too big!")
         return false
     }
     lseek(fd, 0, SEEK_SET)
@@ -64,6 +64,7 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
             }
             if overwriteSucceeded {
                 overwroteOne = true
+                print("Successfully overwrote!")
                 break
             }
             print("try again?!")
@@ -74,16 +75,21 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
         }
     }
     print(Date())
+    print("Successfully overwrote!")
     return true
 }
 
-// FIXME: This literally does nothing.
-func OverwriteBlacklists(banned: Bool, cdhash: Bool) -> Bool {
+func overwriteBlacklists(banned: Bool, cdhash: Bool) -> Bool {
     if banned == true {
-        return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/AuthListBannedUpps.plist", replacementData: try! Data(base64Encoded: blankplist)!)
+        return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist", replacementData: try! Data(base64Encoded: blankplist)!)
     }
     if cdhash == true {
-        return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/AuthListBannedCdHashes.plist", replacementData: try! Data(base64Encoded: blankplist)!)
+        return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist", replacementData: try! Data(base64Encoded: blankplist)!)
     }
-    return overwriteFileWithDataImpl(originPath: "/var/db/MobileIdentityData/Rejections.plist", replacementData: try! Data(base64Encoded: blankplist)!)
+    return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/Rejections.plist", replacementData: try! Data(base64Encoded: blankplist)!)
 }
+
+func readFile(path: String) -> String? {
+    return (try? String?(String(contentsOfFile: path)) ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?")
+}
+

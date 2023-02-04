@@ -19,6 +19,8 @@
 		D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B1298DA45C003CADA1 /* helpers.m */; };
 		D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B5298DA7E5003CADA1 /* Alert++.swift */; };
 		D6EA85B8298DAEBC003CADA1 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85B7298DAEBC003CADA1 /* Common.swift */; };
+		D6EA85BC298DC9C0003CADA1 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85BB298DC9C0003CADA1 /* ContentsView.swift */; };
+		D6EA85BE298DDB35003CADA1 /* Haptic++.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA85BD298DDB35003CADA1 /* Haptic++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		D6EA85B3298DA464003CADA1 /* helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 		D6EA85B5298DA7E5003CADA1 /* Alert++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
 		D6EA85B7298DAEBC003CADA1 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		D6EA85BB298DC9C0003CADA1 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
+		D6EA85BD298DDB35003CADA1 /* Haptic++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptic++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				D6EA857F298DA351003CADA1 /* WhitelistApp.swift */,
 				D6EA85A9298DA408003CADA1 /* Exploit */,
 				D6EA8581298DA351003CADA1 /* ContentView.swift */,
+				D6EA85BB298DC9C0003CADA1 /* ContentsView.swift */,
 				D6EA85B7298DAEBC003CADA1 /* Common.swift */,
 				D6EA85B4298DA7D5003CADA1 /* Extensions */,
 				D6EA8583298DA354003CADA1 /* Assets.xcassets */,
@@ -161,6 +166,7 @@
 		D6EA85B4298DA7D5003CADA1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D6EA85BD298DDB35003CADA1 /* Haptic++.swift */,
 				D6EA85B5298DA7E5003CADA1 /* Alert++.swift */,
 			);
 			path = Extensions;
@@ -297,12 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EA85BE298DDB35003CADA1 /* Haptic++.swift in Sources */,
 				D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */,
 				D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */,
 				D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */,
 				D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */,
 				D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */,
 				D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */,
+				D6EA85BC298DC9C0003CADA1 /* ContentsView.swift in Sources */,
 				D6EA85B8298DAEBC003CADA1 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
