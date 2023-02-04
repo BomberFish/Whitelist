@@ -13,6 +13,12 @@ struct ContentView: View {
     @State var cdHash = true
     @State var inProgress = false
     @State var message = ""
+    @State var banned_success = false
+    @State var blacklist_success = false
+    @State var hash_success = false
+    @State var success = false
+    @State var success_message = ""
+    
     let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
         NavigationView {
@@ -39,20 +45,39 @@ struct ContentView: View {
                         action: {
                             Haptic.shared.play(.heavy)
                             inProgress = true
-                            let success = overwriteBlacklists(banned: banned, cdhash: cdHash)
-                            if success == true {
-                                UIApplication.shared.alert(title: "Success", body: "Successfully removed blacklist.", withButton: true)
+                            
+                            if banned {
+                                banned_success = overwriteBannedApps()
+                            }
+                            if cdHash {
+                                hash_success = overwriteCdHashes()
+                            }
+                            success = overwriteBlacklist()
+                            
+                            // FIXME: Bad.
+                            if banned_success && hash_success {
+                                success_message = "Successfully removed: Blacklist, Banned Apps, CDHashes\nFailed: none"
+                            } else if !banned_success && hash_success {
+                                success_message = "Successfully removed: Blacklist, CDHashes\nFailed: Banned Apps"
+                            } else if banned_success && !hash_success {
+                                success_message = "Successfully removed: Blacklist, Banned Apps\nFailed: CDHashes"
+                            } else {
+                                success_message = "Successfully removed: Blacklist\nFailed: Banned Apps, CDHashes"
+                            }
+                            
+                            if success {
+                                UIApplication.shared.alert(title: "Success", body: success_message, withButton: true)
+                                inProgress = false
                                 Haptic.shared.notify(.success)
                             } else {
                                 UIApplication.shared.alert(title: "Error", body: "An error occurred while writing to the file.", withButton: true)
+                                inProgress = false
                                 Haptic.shared.notify(.error)
                             }
                             inProgress = false
                         },
                         label: { Label("Apply", systemImage: "app.badge.checkmark") }
                     )
-                    // Thanks ChatGPT!
-                    .disabled(!blacklist && !banned && !cdHash || inProgress)
                 } header: {
                     Label("Make It So, Number One", systemImage: "arrow.right.circle")
                 }
