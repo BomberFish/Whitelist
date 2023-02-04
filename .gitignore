@@ -1,0 +1,7 @@
+Payload
+Payload/*
+build
+build/*
+*.ipa
+.DS_Store
+*/.DS_Store
