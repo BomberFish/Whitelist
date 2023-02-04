@@ -1,4 +1,4 @@
-all: build package clean
+all: clean build entitlements package clean
 
 PROJECT = $(shell basename *.xcodeproj)
 WORKING_LOCATION := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
@@ -12,17 +12,21 @@ build:
 	echo "Build finished!"
 
 entitlements:
-	echo "Adding entitlements"
-	chmod a+x $WORKING_LOCATION/bin/ldid
-	$WORKING_LOCATION/bin/ldid -S"$WORKING_LOCATION/entitlements.plist" "$TARGET_APP/$APPLICATION_NAME"
+	echo "Adding entitlements..."
+	chmod a+x $(WORKING_LOCATION)bin/ldid
+	$(WORKING_LOCATION)bin/ldid -S"$(WORKING_LOCATION)entitlements.plist" "build/$(CONFIGURATION)-$(SDK)/$(TARGET).app"
+	echo "Entitlements added!"
 
 package:
+	echo "Packaging app..."
 	rm -rf Payload
 	mkdir Payload
 	cp -r build/$(CONFIGURATION)-$(SDK)/$(TARGET).app Payload
 	zip -r $(TARGET).ipa Payload
+	echo "Packaging finished!"
 
 clean:
 	rm -rf Payload
 	rm -rf build
+	echo "All done!"
 
