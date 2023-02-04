@@ -90,7 +90,7 @@ struct ContentView: View {
                     Label("Advanced", systemImage: "wrench.and.screwdriver")
                 }
                 
-                Section(header: Text("Whitelist " + appVersion + "\nMade with ❤️ by BomberFish")) {}
+                Section(header: Text("Whitelist " + appVersion + "\nMade with ❤️ by BomberFish")) {}.textCase(nil)
             }
             .navigationTitle("Whitelist")
         }
