@@ -56,13 +56,13 @@ struct ContentView: View {
                             
                             // FIXME: Bad.
                             if banned_success && hash_success {
-                                success_message = "Successfully removed: Blacklist, Banned Apps, CDHashes\nFailed: none"
+                                success_message = "Successfully removed: Blacklist, Banned Apps, CDHashes\nDidn't overwrite: none"
                             } else if !banned_success && hash_success {
-                                success_message = "Successfully removed: Blacklist, CDHashes\nFailed: Banned Apps"
+                                success_message = "Successfully removed: Blacklist, CDHashes\nDidn't overwrite: Banned Apps"
                             } else if banned_success && !hash_success {
-                                success_message = "Successfully removed: Blacklist, Banned Apps\nFailed: CDHashes"
+                                success_message = "Successfully removed: Blacklist, Banned Apps\nDidn't overwrite: CDHashes"
                             } else {
-                                success_message = "Successfully removed: Blacklist\nFailed: Banned Apps, CDHashes"
+                                success_message = "Successfully removed: Blacklist\nDidn't overwrite: Banned Apps, CDHashes"
                             }
                             
                             if success {

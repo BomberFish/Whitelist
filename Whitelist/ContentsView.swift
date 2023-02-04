@@ -48,7 +48,7 @@ struct ContentsView: View {
                 cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?" 
             }
         }
-            .navigationTitle("File Contents")
+            .navigationTitle("Blacklist File Contents")
             .onAppear {
                 print("Updating files!")
                 blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
