@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var isUnsandboxed = false
+
 @main
 struct WhitelistApp: App {
     var body: some Scene {
@@ -25,7 +27,9 @@ struct WhitelistApp: App {
                             // TrollStore method
                             print("Checking if installed with TrollStore...")
                             try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches"), includingPropertiesForKeys: nil)
+                            isUnsandboxed = true
                         } catch {
+                            isUnsandboxed = false
                             // MDC method
                             // grant r/w access
                             if #available(iOS 15, *) {
@@ -34,11 +38,14 @@ struct WhitelistApp: App {
                                     if (error != nil) {
                                         print("Unable to escape sandbox! Error: ", String(describing: error?.localizedDescription ?? "unknown?!"))
                                         UIApplication.shared.alert(title: "Access Error", body: "Error: \(String(describing: error?.localizedDescription))\nPlease close the app and retry.", withButton: false)
+                                        isUnsandboxed = false
                                     }
                                 }
+                                isUnsandboxed = true
                             } else {
                                 print("Throwing not supported error (too old)")
                                 UIApplication.shared.alert(title: "Exploit Not Supported", body: "Please install via TrollStore")
+                                isUnsandboxed = false
                             }
                         }
                     }

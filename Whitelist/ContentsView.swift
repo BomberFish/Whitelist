@@ -19,21 +19,21 @@ struct ContentsView: View {
             // TODO: Read file contents
             Section {
                 Text(blacklistContent)
-                    .font(.system(size: 14, design: .monospaced))
+                    .font(.system(.subheadline, design: .monospaced))
             } header: {
                 Label("Blacklist", systemImage: "xmark.seal")
             }
             
             Section {
                 Text(bannedAppsContent)
-                    .font(.system(size: 14, design: .monospaced))
+                    .font(.system(.subheadline, design: .monospaced))
             } header: {
                 Label("Banned Apps", systemImage: "xmark.app")
             }
 
             Section {
                 Text(cdHashesContent)
-                    .font(.system(size: 14, design: .monospaced))
+                    .font(.system(.subheadline, design: .monospaced))
             } header: {
                 Label("CD Hashes", systemImage: "number.square")
             }
@@ -43,9 +43,13 @@ struct ContentsView: View {
             do {
                 Haptic.shared.play(.rigid)
                 print("Updating files!")
+                blacklistContent = ""
+                bannedAppsContent = ""
+                cdHashesContent = ""
                 blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
                 bannedAppsContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-                cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?" 
+                cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+                print("Files updated!")
             }
         }
             .navigationTitle("Blacklist File Contents")
