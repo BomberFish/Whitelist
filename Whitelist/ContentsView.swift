@@ -16,7 +16,6 @@ struct ContentsView: View {
     
     var body: some View {
         List {
-            // TODO: Read file contents
             Section {
                 Text(blacklistContent)
                     .font(.system(.subheadline, design: .monospaced))
@@ -54,7 +53,7 @@ struct ContentsView: View {
         }
             .navigationTitle("Blacklist File Contents")
             .onAppear {
-                print("Updating files!")
+                print("Reading files!")
                 blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
                 bannedAppsContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
                 cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?" 

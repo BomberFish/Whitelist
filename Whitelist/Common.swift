@@ -79,18 +79,6 @@ func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Boo
     return true
 }
 
-
-// FIXME: Deprecated, use the 3 new functions
-func overwriteBlacklists(banned: Bool, cdhash: Bool) -> Bool {
-    if banned == true {
-        return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist", replacementData: try! Data(base64Encoded: blankplist)!)
-    }
-    if cdhash == true {
-        return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist", replacementData: try! Data(base64Encoded: blankplist)!)
-    }
-    return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/Rejections.plist", replacementData: try! Data(base64Encoded: blankplist)!)
-}
-
 func overwriteBlacklist() -> Bool {
     return overwriteFileWithDataImpl(originPath: "/private/var/db/MobileIdentityData/Rejections.plist", replacementData: try! Data(base64Encoded: blankplist)!)
 }
