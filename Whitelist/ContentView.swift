@@ -25,17 +25,14 @@ struct ContentView: View {
             List {
                 Section {
                     Toggle("Overwrite Blacklist", isOn: $blacklist)
-                        .toggleStyle(.switch)
                         .disabled(true)
-                        .tint(.accentColor)
+                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         .disabled(inProgress)
                     Toggle("Overwrite Banned Apps", isOn: $banned)
-                        .toggleStyle(.switch)
-                        .tint(.accentColor)
+                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         .disabled(inProgress)
                     Toggle("Overwrite CDHashes", isOn: $cdHash)
-                        .toggleStyle(.switch)
-                        .tint(.accentColor)
+                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         .disabled(inProgress)
                 } header: {
                     Label("Options", systemImage: "gear")
