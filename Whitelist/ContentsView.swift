@@ -42,13 +42,16 @@ struct ContentsView: View {
             do {
                 Haptic.shared.play(.rigid)
                 print("Updating files!")
-                blacklistContent = ""
-                bannedAppsContent = ""
-                cdHashesContent = ""
-                blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-                bannedAppsContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-                cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
-                print("Files updated!")
+                blacklistContent = "\n\n\n"
+                bannedAppsContent = "\n\n\n"
+                cdHashesContent = "\n\n\n"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+                    bannedAppsContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+                    cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
+                    print("Files updated!")
+                    Haptic.shared.play(.light)
+                }
             }
         }
             .navigationTitle("Blacklist File Contents")

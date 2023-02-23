@@ -66,29 +66,36 @@ struct ContentView: View {
                     Label("Make It So, Number One", systemImage: "arrow.right.circle")
                 }
                 Section {
-                    Toggle("Overwrite Blacklist", isOn: $blacklist)
+                    Toggle(isOn: $blacklist, label:{Label("Overwrite Blacklist", systemImage: "xmark.seal")})
                         .toggleStyle(.switch)
                         .disabled(true)
                         .tint(.accentColor)
                         .disabled(inProgress)
-                    Toggle("Overwrite Banned Apps", isOn: $banned)
+                    Toggle(isOn: $banned, label:{Label("Overwrite Banned Apps", systemImage: "xmark.app")})
                         .toggleStyle(.switch)
                         .tint(.accentColor)
                         .disabled(inProgress)
-                    Toggle("Overwrite CDHashes", isOn: $cdHash)
+                    Toggle(isOn: $cdHash, label:{Label("Overwrite CDHashes", systemImage: "number.square")})
                         .toggleStyle(.switch)
                         .tint(.accentColor)
                         .disabled(inProgress)
                 } header: {
                     Label("Options", systemImage: "gear")
                 }
-                Section{Toggle("Run in background", isOn: $runInBackground)
+                Section{
+                    Toggle(isOn: $runInBackground, label:{Label("Run in background", systemImage: "app.dashed")})
                         .toggleStyle(.switch)
-                        .tint(.accentColor)}
+                        .tint(.accentColor)
+                    Label("Update Frequency (eta son)", systemImage: "clock.arrow.circlepath")
+                    
+                    
+                } header: {
+                    Label("Background Update", systemImage: "location.fill")
+                }
                 
                 Section {
                     NavigationLink(destination: ContentsView()) {
-                        Text("View contents of blacklist files")
+                        Label("View contents of blacklist files", systemImage: "doc.text")
                     }
                 } header : {
                     Label("Advanced", systemImage: "wrench.and.screwdriver")
