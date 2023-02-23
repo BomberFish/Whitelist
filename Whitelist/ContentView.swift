@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State var blacklist = true
-    @State var banned = true
-    @State var cdHash = true
+    @State var banned: Bool = UserDefaults.standard.bool(forKey: "BannedEnabled")
+    @State var cdHash: Bool = UserDefaults.standard.bool(forKey: "CdEnabled")
     @State var inProgress = false
     @State var message = ""
     @State var banned_success = false
@@ -18,28 +18,12 @@ struct ContentView: View {
     @State var hash_success = false
     @State var success = false
     @State var success_message = ""
+    @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     
     let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    Toggle("Overwrite Blacklist", isOn: $blacklist)
-                        .toggleStyle(.switch)
-                        .disabled(true)
-                        .tint(.accentColor)
-                        .disabled(inProgress)
-                    Toggle("Overwrite Banned Apps", isOn: $banned)
-                        .toggleStyle(.switch)
-                        .tint(.accentColor)
-                        .disabled(inProgress)
-                    Toggle("Overwrite CDHashes", isOn: $cdHash)
-                        .toggleStyle(.switch)
-                        .tint(.accentColor)
-                        .disabled(inProgress)
-                } header: {
-                    Label("Options", systemImage: "gear")
-                }
                 Section {
                     Button(
                         action: {
@@ -81,6 +65,26 @@ struct ContentView: View {
                 } header: {
                     Label("Make It So, Number One", systemImage: "arrow.right.circle")
                 }
+                Section {
+                    Toggle("Overwrite Blacklist", isOn: $blacklist)
+                        .toggleStyle(.switch)
+                        .disabled(true)
+                        .tint(.accentColor)
+                        .disabled(inProgress)
+                    Toggle("Overwrite Banned Apps", isOn: $banned)
+                        .toggleStyle(.switch)
+                        .tint(.accentColor)
+                        .disabled(inProgress)
+                    Toggle("Overwrite CDHashes", isOn: $cdHash)
+                        .toggleStyle(.switch)
+                        .tint(.accentColor)
+                        .disabled(inProgress)
+                } header: {
+                    Label("Options", systemImage: "gear")
+                }
+                Section{Toggle("Run in background", isOn: $runInBackground)
+                        .toggleStyle(.switch)
+                        .tint(.accentColor)}
                 
                 Section {
                     NavigationLink(destination: ContentsView()) {

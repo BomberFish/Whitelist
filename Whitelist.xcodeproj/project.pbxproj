@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D67C0F9029A7EF3B005267D9 /* ApplicationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F8F29A7EF3B005267D9 /* ApplicationMonitor.swift */; };
+		D67C0F9229A7EF6B005267D9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9129A7EF6B005267D9 /* LocationManager.swift */; };
+		D67C0F9429A7EF96005267D9 /* BackgroundUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */; };
+		D67C0F9929A7F3E9005267D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */; };
 		D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA857F298DA351003CADA1 /* WhitelistApp.swift */; };
 		D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA8581298DA351003CADA1 /* ContentView.swift */; };
 		D6EA8584298DA354003CADA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EA8583298DA354003CADA1 /* Assets.xcassets */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D67C0F8F29A7EF3B005267D9 /* ApplicationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMonitor.swift; sourceTree = "<group>"; };
+		D67C0F9129A7EF6B005267D9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUpdate.swift; sourceTree = "<group>"; };
+		D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6EA857C298DA351003CADA1 /* Whitelist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitelist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA857F298DA351003CADA1 /* WhitelistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistApp.swift; sourceTree = "<group>"; };
 		D6EA8581298DA351003CADA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D67C0F8E29A7EF1A005267D9 /* BackgroundUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				D67C0F8F29A7EF3B005267D9 /* ApplicationMonitor.swift */,
+				D67C0F9129A7EF6B005267D9 /* LocationManager.swift */,
+				D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */,
+			);
+			path = BackgroundUpdate;
+			sourceTree = "<group>";
+		};
 		D6EA8573298DA351003CADA1 = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +134,9 @@
 				D6EA85A9298DA408003CADA1 /* Exploit */,
 				D6EA8581298DA351003CADA1 /* ContentView.swift */,
 				D6EA85BB298DC9C0003CADA1 /* ContentsView.swift */,
+				D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */,
 				D6EA85B7298DAEBC003CADA1 /* Common.swift */,
+				D67C0F8E29A7EF1A005267D9 /* BackgroundUpdate */,
 				D6EA85B4298DA7D5003CADA1 /* Extensions */,
 				D6EA8583298DA354003CADA1 /* Assets.xcassets */,
 				D6EA8585298DA354003CADA1 /* Preview Content */,
@@ -306,10 +326,14 @@
 				D6EA85BE298DDB35003CADA1 /* Haptic++.swift in Sources */,
 				D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */,
 				D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */,
+				D67C0F9229A7EF6B005267D9 /* LocationManager.swift in Sources */,
+				D67C0F9929A7F3E9005267D9 /* AppDelegate.swift in Sources */,
+				D67C0F9429A7EF96005267D9 /* BackgroundUpdate.swift in Sources */,
 				D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */,
 				D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */,
 				D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */,
 				D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */,
+				D67C0F9029A7EF3B005267D9 /* ApplicationMonitor.swift in Sources */,
 				D6EA85BC298DC9C0003CADA1 /* ContentsView.swift in Sources */,
 				D6EA85B8298DAEBC003CADA1 /* Common.swift in Sources */,
 			);
@@ -469,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = Release;
+				CURRENT_PROJECT_VERSION = Preview;
 				DEVELOPMENT_ASSET_PATHS = "\"Whitelist/Preview Content\"";
 				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
@@ -487,7 +511,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.Whitelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -505,7 +529,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = Release;
+				CURRENT_PROJECT_VERSION = Preview;
 				DEVELOPMENT_ASSET_PATHS = "\"Whitelist/Preview Content\"";
 				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
@@ -523,7 +547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.Whitelist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

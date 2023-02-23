@@ -63,6 +63,7 @@ struct WhitelistApp: App {
                         }
                         task.resume()
                     }
+                    
                 }
         }
     }
