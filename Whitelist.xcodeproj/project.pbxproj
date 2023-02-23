@@ -500,6 +500,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant access to the sandbox. Required for app functionality.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -536,6 +538,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant access to the sandbox. Required for app functionality.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
