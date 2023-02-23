@@ -18,7 +18,7 @@ struct ContentView: View {
     @State var hash_success = false
     @State var success = false
     @State var success_message = ""
-    @State private var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
+    @State var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
     
     let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
@@ -75,10 +75,18 @@ struct ContentView: View {
                         .toggleStyle(.switch)
                         .tint(.accentColor)
                         .disabled(inProgress)
+                        .onChange(of: banned) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "BannedEnabled")
+                        }
                     Toggle(isOn: $cdHash, label:{Label("Overwrite CDHashes", systemImage: "number.square")})
                         .toggleStyle(.switch)
                         .tint(.accentColor)
                         .disabled(inProgress)
+                        .onChange(of: cdHash) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "CdEnabled")
+                        }
                 } header: {
                     Label("Options", systemImage: "gear")
                 }
@@ -86,6 +94,19 @@ struct ContentView: View {
                     Toggle(isOn: $runInBackground, label:{Label("Run in background", systemImage: "app.dashed")})
                         .toggleStyle(.switch)
                         .tint(.accentColor)
+                        .onChange(of: runInBackground) { new in
+                            // set the user defaults
+                            UserDefaults.standard.set(new, forKey: "BackgroundApply")
+                            var newWord: String = "Enabled"
+                            if new == false {
+                                newWord = "Disabled"
+                                ApplicationMonitor.shared.stop()
+                            }
+                            UIApplication.shared.confirmAlert(title: "Background Update \(newWord)", body: "The app needs to restart to apply the change.", onOK: {
+                                exit(0)
+                            }, noCancel: true)
+                            //BackgroundFileUpdaterController.shared.enabled = new
+                        }
                     Label("Update Frequency (eta son)", systemImage: "clock.arrow.circlepath")
                     
                     
@@ -94,7 +115,7 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    NavigationLink(destination: ContentsView()) {
+                    NavigationLink(destination: FileContentsView()) {
                         Label("View contents of blacklist files", systemImage: "doc.text")
                     }
                 } header : {

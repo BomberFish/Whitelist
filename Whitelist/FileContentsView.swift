@@ -5,11 +5,9 @@
 //  Created by Hariz Shirazi on 2023-02-03.
 //
 
-// FIXME: This might be hard to distinguish from ContentView.
-
 import SwiftUI
 
-struct ContentsView: View {
+struct FileContentsView: View {
     @State var blacklistContent = readFile(path: "/private/var/db/MobileIdentityData/Rejections.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
     @State var bannedAppsContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedUpps.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
     @State var cdHashesContent = readFile(path: "/private/var/db/MobileIdentityData/AuthListBannedCdHashes.plist") ?? "ERROR: Could not read from file! Are you running in the simulator or not unsandboxed?"
@@ -65,8 +63,8 @@ struct ContentsView: View {
         
 }
 
-struct ContentsView_Previews: PreviewProvider {
+struct FileContentsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentsView()
+        FileContentsView()
     }
 }
