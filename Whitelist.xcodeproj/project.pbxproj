@@ -49,6 +49,7 @@
 		D67C0F9129A7EF6B005267D9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUpdate.swift; sourceTree = "<group>"; };
 		D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D6E5927E29A99F84004F663D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D6EA857C298DA351003CADA1 /* Whitelist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitelist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA857F298DA351003CADA1 /* WhitelistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistApp.swift; sourceTree = "<group>"; };
 		D6EA8581298DA351003CADA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		D6EA857E298DA351003CADA1 /* Whitelist */ = {
 			isa = PBXGroup;
 			children = (
+				D6E5927E29A99F84004F663D /* Info.plist */,
 				D6EA857F298DA351003CADA1 /* WhitelistApp.swift */,
 				D6EA85A9298DA408003CADA1 /* Exploit */,
 				D6EA8581298DA351003CADA1 /* ContentView.swift */,
@@ -498,9 +500,11 @@
 				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Whitelist/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant access to the sandbox. Required for app functionality.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -536,9 +540,11 @@
 				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Whitelist/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Grant access to the sandbox. Required for app functionality.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Whitelist uses location services to run in the background and keep apps from being blacklisted. No data is ever stored or transmitted anywhere.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
