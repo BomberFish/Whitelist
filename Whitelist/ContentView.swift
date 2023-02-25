@@ -19,7 +19,7 @@ struct ContentView: View {
     @State var success = false
     @State var success_message = ""
     @State var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
-    
+
     let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
         NavigationView {
