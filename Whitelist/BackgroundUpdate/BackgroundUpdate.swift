@@ -11,6 +11,7 @@ import Foundation
 import SwiftUI
 import notify
 import SystemConfiguration
+import os.log
 
 class BackgroundFileUpdaterController: ObservableObject {
     static let shared = BackgroundFileUpdaterController()
@@ -27,12 +28,16 @@ class BackgroundFileUpdaterController: ObservableObject {
         }
     }
     func updateFiles() {
+        os_log(.debug, "BG: Updating!")
         if UserDefaults.standard.bool(forKey: "BannedEnabled") == true {
+            os_log(.debug, "BG: Overwriting Banned Apps!")
             overwriteBannedApps()
         }
         if UserDefaults.standard.bool(forKey: "CdEnabled") == true {
+            os_log(.debug, "BG: Overwriting CDHashes!")
             overwriteCdHashes()
         }
+        os_log(.debug, "BG: Overwriting Blacklist!")
         overwriteBlacklist()
     }
 }

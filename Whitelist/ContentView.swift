@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os.log
 
 struct ContentView: View {
     @State var blacklist = true
@@ -27,6 +28,7 @@ struct ContentView: View {
                 Section {
                     Button(
                         action: {
+                            os_log(.debug, "FG: Applying!")
                             Haptic.shared.play(.heavy)
                             inProgress = true
                             
@@ -56,8 +58,10 @@ struct ContentView: View {
                                 UIApplication.shared.alert(title: "Success", body: success_message, withButton: true)
                                 inProgress = false
                                 Haptic.shared.notify(.success)
+                                os_log(.debug, "FG: Success! See UI for details.")
                             } else {
                                 UIApplication.shared.alert(title: "Error", body: "An error occurred while writing to the file.", withButton: true)
+                                os_log(.debug, "FG: Error! See UI for details.")
                                 inProgress = false
                                 Haptic.shared.notify(.error)
                             }

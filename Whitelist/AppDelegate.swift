@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import os.log
 
 extension UNNotificationCategory
 {
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "CdEnabled": true
         ])
         if UserDefaults.standard.bool(forKey: "BackgroundApply") == true {
+            os_log(.debug, "BG: Starting background service...")
             ApplicationMonitor.shared.start()
             
             self.registerForNotifications()

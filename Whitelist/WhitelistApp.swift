@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os.log
 
 var isUnsandboxed = false
 
@@ -20,7 +21,9 @@ struct WhitelistApp: App {
 #if targetEnvironment(simulator)
 #else
                         // I'm sorry 16.2 dev beta 1 users, you are a vast minority.
+                        // TODO: Maybe a sandbox escape can persist through updates? SB extension token is stored in docs so...
                         print("Throwing not supported error (patched)")
+                        os_log(.error, "ERROR: Running iOS 16.2, MDC patched!")
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.", withButton: false)
 #endif
                     } else {
@@ -28,6 +31,7 @@ struct WhitelistApp: App {
                             // TrollStore method
                             print("Checking if installed with TrollStore...")
                             try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile/Library/Caches"), includingPropertiesForKeys: nil)
+                            os_log(.info, "INFO: TrollStore detected!")
                             isUnsandboxed = true
                         } catch {
                             isUnsandboxed = false
@@ -38,13 +42,16 @@ struct WhitelistApp: App {
                                 grant_full_disk_access() { error in
                                     if (error != nil) {
                                         print("Unable to escape sandbox! Error: ", String(describing: error?.localizedDescription ?? "unknown?!"))
+                                        os_log(.fault, "ERROR: unsandbox failed!!! omg panic!!!!!")
                                         UIApplication.shared.alert(title: "Access Error", body: "Error: \(String(describing: error?.localizedDescription))\nPlease close the app and retry.", withButton: false)
                                         isUnsandboxed = false
                                     }
                                 }
+                                os_log(.info, "INFO: Probably escaped sandbox.")
                                 isUnsandboxed = true
                             } else {
                                 print("Throwing not supported error (too old)")
+                                os_log(.error, "ERROR: Running below iOS 15, do we really need this check???")
                                 UIApplication.shared.alert(title: "Exploit Not Supported", body: "Please install via TrollStore")
                                 isUnsandboxed = false
                             }
