@@ -35,6 +35,9 @@ struct ContentView: View {
                             }
                             if cdHash {
                                 hash_success = overwriteCdHashes()
+                            } else {
+                                banned_success = false
+                                hash_success = false
                             }
                             success = overwriteBlacklist()
                             
