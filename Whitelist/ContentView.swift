@@ -19,8 +19,20 @@ struct ContentView: View {
     @State var hash_success = false
     @State var success = false
     @State var success_message = ""
+    @ObservedObject var backgroundController = BackgroundFileUpdaterController.shared
+    @State private var bgUpdateInterval: Double = UserDefaults.standard.double(forKey: "BackgroundUpdateInterval")
     @State var runInBackground: Bool = UserDefaults.standard.bool(forKey: "BackgroundApply")
 
+    @State var bgUpdateIntervalDisplayTitles: [Double: String] = [
+        120.0: "Frequent",
+        600.0: "Power Saver"
+    ]
+    
+    @State var bgUpdateIntervalIcons: [Double: String] = [
+        120.0: "bolt.badge.clock",
+        600.0: "leaf"
+    ]
+    
     let appVersion = ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown") + " (" + (Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown") + ")")
     var body: some View {
         NavigationView {
@@ -109,12 +121,60 @@ struct ContentView: View {
                                 newWord = "Disabled"
                                 ApplicationMonitor.shared.stop()
                             }
-                            UIApplication.shared.confirmAlert(title: "Background Update \(newWord)", body: "The app will close. Reopen Whitelist to apply the change.", onOK: {
+                            UIApplication.shared.confirmAlert(title: "Background Update \(newWord)", body: "The app will close. Re-open Whitelist to apply the change.", onOK: {
                                 exit(0)
                             }, noCancel: true)
                             //BackgroundFileUpdaterController.shared.enabled = new
                         }
-                    Label("Update Frequency (eta son)", systemImage: "clock.arrow.circlepath")
+                    // background run frequency
+                    HStack {
+                        Label("Update Frequency", systemImage: "clock.arrow.circlepath")
+                            .minimumScaleFactor(0.5)
+                        
+                        Spacer()
+                        
+                        Button( action: {
+                            // create and configure alert controller
+                            let alert = UIAlertController(title: "Update Frequency", message: "Choose an update option", preferredStyle: .actionSheet)
+                            
+                            // create the actions
+                            for (t, title) in bgUpdateIntervalDisplayTitles {
+                                let newAction = UIAlertAction(title: NSLocalizedString(title, comment: "The option title for background frequency"), style: .default) { (action) in
+                                    // apply the type
+                                    bgUpdateInterval = t
+                                    // set the default
+                                    UserDefaults.standard.set(t, forKey: "BackgroundUpdateInterval")
+                                    // update the timer
+                                    backgroundController.time = bgUpdateInterval
+                                }
+                                if bgUpdateInterval == t {
+                                    // add a check mark
+                                    newAction.setValue(true, forKey: "checked")
+                                }
+                                alert.addAction(newAction)
+                            }
+                            
+                            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel) { (action) in
+                                // cancels the action
+                            }
+                            
+                            // add the actions
+                            alert.addAction(cancelAction)
+                            
+                            let view: UIView = UIApplication.shared.windows.first!.rootViewController!.view
+                            // present popover for iPads
+                            alert.popoverPresentationController?.sourceView = view // prevents crashing on iPads
+                            alert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.maxY, width: 0, height: 0) // show up at center bottom on iPads
+                            
+                            // present the alert
+                            UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
+                        },label:{
+                            Label(bgUpdateIntervalDisplayTitles[bgUpdateInterval] ?? "Error", systemImage: bgUpdateIntervalIcons[bgUpdateInterval] ?? "")
+                            
+                        })
+                        .foregroundColor(.accentColor)
+                        .padding(.leading, 10)
+                    }
                     
                     
                 } header: {
