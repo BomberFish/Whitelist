@@ -102,7 +102,7 @@ struct ContentView: View {
                                 newWord = "Disabled"
                                 ApplicationMonitor.shared.stop()
                             }
-                            UIApplication.shared.confirmAlert(title: "Background Update \(newWord)", body: "The app will restart to apply the change.", onOK: {
+                            UIApplication.shared.confirmAlert(title: "Background Update \(newWord)", body: "The app will close. Reopen Whitelist to apply the change.", onOK: {
                                 exit(0)
                             }, noCancel: true)
                             //BackgroundFileUpdaterController.shared.enabled = new
