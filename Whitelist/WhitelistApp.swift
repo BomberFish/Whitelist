@@ -23,9 +23,19 @@ struct WhitelistApp: App {
                         // I'm sorry 16.2 dev beta 1 users, you are a vast minority.
                         // TODO: Maybe a sandbox escape can persist through updates? SB extension token is stored in docs so...
                         print("Throwing not supported error (patched)")
-                        os_log(.error, "ERROR: Running iOS 16.2, MDC patched!")
+                        os_log(.error, "ERROR: Running iOS 16.2+, MDC patched!")
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.", withButton: false)
 #endif
+                    } else if #available(iOS 15.0, *) {
+                        if #available(iOS 15.7.2, *) {
+#if targetEnvironment(simulator)
+#else
+                        // confused users moment
+                        print("Throwing not supported error (patched)")
+                        os_log(.error, "ERROR: Running iOS 15.7.2+, MDC patched!")
+                        UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.", withButton: false)
+#endif
+                        }
                     } else {
                         do {
                             // TrollStore method
@@ -37,6 +47,7 @@ struct WhitelistApp: App {
                             isUnsandboxed = false
                             // MDC method
                             // grant r/w access
+                            // Ok this is practically useless but 
                             if #available(iOS 15, *) {
                                 print("Trying sandbox escape...")
                                 grant_full_disk_access() { error in
