@@ -26,16 +26,6 @@ struct WhitelistApp: App {
                         os_log(.error, "ERROR: Running iOS 16.2+, MDC patched!")
                         UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.", withButton: false)
 #endif
-                    } else if #available(iOS 15.0, *) {
-                        if #available(iOS 15.7.2, *) {
-#if targetEnvironment(simulator)
-#else
-                        // confused users moment
-                        print("Throwing not supported error (patched)")
-                        os_log(.error, "ERROR: Running iOS 15.7.2+, MDC patched!")
-                        UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported.", withButton: false)
-#endif
-                        }
                     } else {
                         do {
                             // TrollStore method
