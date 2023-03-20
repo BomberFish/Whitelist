@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "localconsole",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BomberFish/LocalConsole",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6565a201829e5187f75eccc430ac387e4bb9bc88"
+      }
+    }
+  ],
+  "version" : 2
+}

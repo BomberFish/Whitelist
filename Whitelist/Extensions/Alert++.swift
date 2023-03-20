@@ -1,13 +1,13 @@
 //
 //  Alert++.swift
-//  Whitelist
+//  PsychicPaper
 //
-//  Created by Hariz Shirazi on 2023-02-03.
+//  Created by Hariz Shirazi on 2023-02-04.
 //
 
 import UIKit
 
-// credit: sourcelocation & TrollTools
+// Thanks suslocation!
 var currentUIAlertController: UIAlertController?
 
 extension UIApplication {
@@ -35,6 +35,29 @@ extension UIApplication {
             self.present(alert: currentUIAlertController!)
         }
     }
+    
+    func choiceAlert(title: String = "Error", body: String, onOK: @escaping () -> ()) {
+        DispatchQueue.main.async {
+            currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
+            currentUIAlertController?.addAction(.init(title: "No", style: .cancel))
+            currentUIAlertController?.addAction(.init(title: "Yes", style: .default, handler: { _ in
+                onOK()
+            }))
+            self.present(alert: currentUIAlertController!)
+        }
+    }
+    
+    func confirmAlertDestructive(title: String = "Error", body: String, onOK: @escaping () -> (), destructActionText: String) {
+        DispatchQueue.main.async {
+            currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
+            currentUIAlertController?.addAction(.init(title: destructActionText, style: .destructive, handler: { _ in
+                onOK()
+            }))
+            currentUIAlertController?.addAction(.init(title: "Cancel", style: .cancel))
+            self.present(alert: currentUIAlertController!)
+        }
+    }
+    
     func change(title: String = "Error", body: String) {
         DispatchQueue.main.async {
             currentUIAlertController?.title = title

@@ -7,6 +7,9 @@
 
 import SwiftUI
 import os.log
+import LocalConsole
+let consoleManager = LCManager.shared
+let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
 
 var isUnsandboxed = false
 
@@ -71,6 +74,17 @@ struct WhitelistApp: App {
                             }
                         }
                         task.resume()
+                    }
+                    consoleManager.isVisible = UserDefaults.standard.bool(forKey: "LCEnabled")
+                    if launchedBefore  {
+                        print("Not first launch.")
+                    } else {
+                        print("First launch, setting UserDefault.")
+                        // FIXME: body really sucks
+                        UIApplication.shared.choiceAlert(title: "Analytics", body: "Allow AppCommander to send anonymized data to improve your experience?", onOK: {
+                            UserDefaults.standard.set(1, forKey: "analyticsLevel")
+                        })
+                        UserDefaults.standard.set(true, forKey: "launchedBefore")
                     }
                     
                 }

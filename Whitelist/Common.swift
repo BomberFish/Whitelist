@@ -7,6 +7,20 @@
 
 import Foundation
 
+public func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    let data = items.map { "\($0)" }.joined(separator: separator)
+    consoleManager.print(data)
+    Swift.print(data, terminator: terminator)
+}
+
+public func conditionalPrint(_ items: Any..., c: Bool, separator: String = " ", terminator: String = "\n") {
+    if c {
+        let data = items.map { "\($0)" }.joined(separator: separator)
+        consoleManager.print(data)
+        Swift.print(data, terminator: terminator)
+    }
+}
+
 let blankplist = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdC8+CjwvcGxpc3Q+Cg=="
 
 func overwriteFileWithDataImpl(originPath: String, replacementData: Data) -> Bool {

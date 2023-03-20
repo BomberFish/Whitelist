@@ -11,6 +11,9 @@
 		D67C0F9229A7EF6B005267D9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9129A7EF6B005267D9 /* LocationManager.swift */; };
 		D67C0F9429A7EF96005267D9 /* BackgroundUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */; };
 		D67C0F9929A7F3E9005267D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */; };
+		D6D22B7429C8D53A0095645B /* LocalConsole in Frameworks */ = {isa = PBXBuildFile; productRef = D6D22B7329C8D53A0095645B /* LocalConsole */; };
+		D6D22B7629C8D5D00095645B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D22B7529C8D5D00095645B /* SettingsView.swift */; };
+		D6D22B7929C8DB490095645B /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D22B7829C8DB490095645B /* PrivacyPolicyView.swift */; };
 		D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA857F298DA351003CADA1 /* WhitelistApp.swift */; };
 		D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA8581298DA351003CADA1 /* ContentView.swift */; };
 		D6EA8584298DA354003CADA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EA8583298DA354003CADA1 /* Assets.xcassets */; };
@@ -49,6 +52,8 @@
 		D67C0F9129A7EF6B005267D9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUpdate.swift; sourceTree = "<group>"; };
 		D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D6D22B7529C8D5D00095645B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D6D22B7829C8DB490095645B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		D6E5927E29A99F84004F663D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D6EA857C298DA351003CADA1 /* Whitelist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitelist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA857F298DA351003CADA1 /* WhitelistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistApp.swift; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D22B7429C8D53A0095645B /* LocalConsole in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,15 @@
 				D67C0F9329A7EF96005267D9 /* BackgroundUpdate.swift */,
 			);
 			path = BackgroundUpdate;
+			sourceTree = "<group>";
+		};
+		D6D22B7729C8DB3A0095645B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D6D22B7529C8D5D00095645B /* SettingsView.swift */,
+				D6D22B7829C8DB490095645B /* PrivacyPolicyView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		D6EA8573298DA351003CADA1 = {
@@ -138,6 +153,7 @@
 				D6EA85BB298DC9C0003CADA1 /* FileContentsView.swift */,
 				D67C0F9829A7F3E9005267D9 /* AppDelegate.swift */,
 				D6EA85B7298DAEBC003CADA1 /* Common.swift */,
+				D6D22B7729C8DB3A0095645B /* Settings */,
 				D67C0F8E29A7EF1A005267D9 /* BackgroundUpdate */,
 				D6EA85B4298DA7D5003CADA1 /* Extensions */,
 				D6EA8583298DA354003CADA1 /* Assets.xcassets */,
@@ -210,6 +226,9 @@
 			dependencies = (
 			);
 			name = Whitelist;
+			packageProductDependencies = (
+				D6D22B7329C8D53A0095645B /* LocalConsole */,
+			);
 			productName = Whitelist;
 			productReference = D6EA857C298DA351003CADA1 /* Whitelist.app */;
 			productType = "com.apple.product-type.application";
@@ -283,6 +302,9 @@
 				Base,
 			);
 			mainGroup = D6EA8573298DA351003CADA1;
+			packageReferences = (
+				D6D22B7229C8D53A0095645B /* XCRemoteSwiftPackageReference "LocalConsole" */,
+			);
 			productRefGroup = D6EA857D298DA351003CADA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,10 +350,12 @@
 				D6EA85BE298DDB35003CADA1 /* Haptic++.swift in Sources */,
 				D6EA85AF298DA440003CADA1 /* grant_full_disk_access.m in Sources */,
 				D6EA8582298DA351003CADA1 /* ContentView.swift in Sources */,
+				D6D22B7929C8DB490095645B /* PrivacyPolicyView.swift in Sources */,
 				D67C0F9229A7EF6B005267D9 /* LocationManager.swift in Sources */,
 				D67C0F9929A7F3E9005267D9 /* AppDelegate.swift in Sources */,
 				D67C0F9429A7EF96005267D9 /* BackgroundUpdate.swift in Sources */,
 				D6EA8580298DA351003CADA1 /* WhitelistApp.swift in Sources */,
+				D6D22B7629C8D5D00095645B /* SettingsView.swift in Sources */,
 				D6EA85AD298DA421003CADA1 /* vm_unaligned_copy_switch_race.c in Sources */,
 				D6EA85B6298DA7E5003CADA1 /* Alert++.swift in Sources */,
 				D6EA85B2298DA45C003CADA1 /* helpers.m in Sources */,
@@ -683,6 +707,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D6D22B7229C8D53A0095645B /* XCRemoteSwiftPackageReference "LocalConsole" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BomberFish/LocalConsole";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6D22B7329C8D53A0095645B /* LocalConsole */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6D22B7229C8D53A0095645B /* XCRemoteSwiftPackageReference "LocalConsole" */;
+			productName = LocalConsole;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6EA8574298DA351003CADA1 /* Project object */;
 }

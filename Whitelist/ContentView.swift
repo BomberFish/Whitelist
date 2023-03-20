@@ -190,6 +190,13 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Whitelist " + appVersion + "\nMade with ❤️ by BomberFish")) {}.textCase(nil)
+                    .toolbar {
+                        NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Label("", systemImage: "gear")
+                        }
+                    }
             }
             .navigationTitle("Whitelist")
         }
