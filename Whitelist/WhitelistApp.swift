@@ -81,10 +81,13 @@ struct WhitelistApp: App {
                     } else {
                         print("First launch, setting UserDefault.")
                         // FIXME: body really sucks
-                        UIApplication.shared.choiceAlert(title: "Analytics", body: "Allow AppCommander to send anonymized data to improve your experience?", onOK: {
+                        UIApplication.shared.choiceAlert(title: "Analytics", body: "Allow AppCommander to send anonymized data to improve your experience?", yesAction: {
                             UserDefaults.standard.set(1, forKey: "analyticsLevel")
+                            UserDefaults.standard.set(true, forKey: "launchedBefore")
+                        }, noAction: {
+                            UserDefaults.standard.set(0, forKey: "analyticsLevel")
+                            UserDefaults.standard.set(true, forKey: "launchedBefore")
                         })
-                        UserDefaults.standard.set(true, forKey: "launchedBefore")
                     }
                     
                 }
